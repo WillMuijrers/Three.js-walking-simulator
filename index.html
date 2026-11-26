@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Three.js walking simulator</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #efe7dd; touch-action: none; }
+    canvas { display: block; }
+    #hint {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font: 500 18px/1.4 system-ui, sans-serif; color: #3a3631;
+      background: rgba(255,255,255,.8); padding: 12px 20px; border-radius: 999px;
+      pointer-events: none; transition: opacity .8s;
+    }
+    #stats {
+      position: fixed; top: 10px; left: 10px; font: 12px/1.5 ui-monospace, monospace;
+      color: #fff; background: rgba(0,0,0,.45); padding: 6px 10px; border-radius: 6px;
+      pointer-events: none; white-space: pre;
+    }
+    #progress { position: fixed; left: 0; bottom: 0; height: 4px; width: 0; background: #3a3631; }
+    #tooltip {
+      position: fixed; left: 0; top: 0; pointer-events: none; opacity: 0; transition: opacity .15s;
+      font: 13px/1.4 system-ui, sans-serif; color: #fff; background: rgba(34,32,30,.92); border-left: 5px solid #e63946;
+      padding: 8px 12px; border-radius: 4px; box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    }
+    #tooltip strong { display: block; font-size: 15px; letter-spacing: .02em; }
+    #tooltip span { opacity: .85; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="hint">Scroll om te lopen · hover over iemand voor de naam</div>
+  <div id="stats"></div>
+  <div id="progress"></div>
+  <div id="tooltip"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
